@@ -1,0 +1,68 @@
+html {
+	font-family: Microsoft JhengHei;
+}
+
+#content {
+	width: 100%;
+	padding: 40px;
+	height: 40em;
+	margin:0px auto;
+	text-align: center;
+}
+
+#button{
+	display: block;
+	padding-top: 20px;
+	border: 1px solid #ccc;
+	border-radius: 3px;
+	height: 170px;
+	width: 170px;
+	margin: 0 auto;
+}
+
+#symbol{
+	display: block;
+	padding-top: 20px;
+	border: 1px solid #ccc;
+	border-radius: 3px;
+	height: 100px;
+	width: 85px;
+	margin: 0 auto;
+}
+#display{
+	display: block;
+	padding-top: 20px;
+	padding-left: 30px;
+	border: 1px solid #ccc;
+	border-radius: 3px;
+	height: 100px;
+	width: 255px;
+	margin: 0 auto;
+	text-align: left;
+}
+
+#label{
+	display: block;
+	border: 1px solid #ccc;
+	border-radius: 3px;
+	height: 70px;
+	width: 85px;
+	margin: 0;
+}
+
+#row{
+	display: block;
+	text-align: center;
+}
+
+#table{
+
+	display: block;
+	text-align: center;
+}
+
+#status{
+
+	display: block;
+	text-align: center;
+}
