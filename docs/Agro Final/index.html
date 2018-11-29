@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<head>
+<title>	&#127809; AGro User Interface</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="styles.css">
+
+</head>
+
+<body>
+		
+
+
+	<div  id="content"	class="row">
+		<table id="table">
+			<tr id="row">
+				<td>
+					<div id="button"	class="inputs"	>
+						<img src="icon/light.png">	
+						<h3>Lights</h3>
+					</div>
+				</td>
+
+				<td>
+					<div id="button"	class="inputs"	>
+						<img src="icon/pipe.png">	
+						<h3>Pumps</h3>
+					</div>
+				</td>
+
+				<td>
+					<div id="button"	class="inputs"	>
+						<img src="icon/food.png">	
+						<h3>Manual Feed</h3>
+					</div>
+				</td>
+			</tr>
+
+			<tr id="row">
+				<td>
+					<div id="label"	class="inputs"	>
+						<h3 id="headLabel">
+							<div class="button" id="buttonLabel">
+							  <input type="button" onClick="changeOn();" id="clicker">
+							  <span class="someText"  id="textOn">ON</span>
+							</div> 
+						</h3>
+					</div>
+				</td>
+
+				<td>
+					<div id="label"	class="inputs"	>
+						<h3 id="headLabel">
+							<div class="button" id="buttonLabel">
+							  <input type="button" onClick="changeOff();" id="clicker">
+							  <span class="someText"  id="textOff">OFF</span>
+							</div> 
+						</h3>
+					</div>
+				</td>
+
+				<td>
+					<div id="label"	class="inputs"	>
+						<h3 id="headLabel">
+							<div class="button" id="buttonLabel">
+							  <input type="button" onClick="pumpOn();" id="clicker">
+							  <span class="someText"  id="pumpOn">ON</span>
+							</div> 
+						</h3>
+					</div>
+				</td>
+
+				<td>
+					<div id="label"	class="inputs"	>
+						<h3 id="headLabel">
+							<div class="button" id="buttonLabel">
+							  <input type="button" onClick="pumpOff();" id="clicker">
+							  <span class="someText"  id="pumpOff">OFF</span>
+							</div> 
+						</h3>
+					</div>
+				</td>
+
+				<td>
+					<div id="label"	class="inputs"	>
+						<h3 id="headLabel">
+							<div class="button" id="buttonLabel">
+							  <input type="button" onClick="feedOn();" id="clicker">
+							  <span class="someText"  id="feedOn">ON</span>
+							</div> 
+						</h3>
+					</div>
+				</td>
+
+				<td>
+					<div id="label"	class="inputs"	>
+						<h3 id="headLabel">
+							<div class="button" id="buttonLabel">
+							  <input type="button" onClick="feedOff();" id="clicker">
+							  <span class="someText"  id="feedOn">OFF</span>
+							</div> 
+						</h3>
+					</div>
+				</td>
+			</tr>
+
+		</table>
+			<br>
+
+		<table id="status">
+			<tr id="row">
+				<td>
+					<div id="symbol"	class="inputs"	>
+						<img src="icon/acid.png">	
+					</div>
+				</td>
+
+				<td>
+					<div id="display"	class="inputs"	>
+						<h3>pH Level &#58;
+							<span class="analogvalue" id="temperaturevalue">none</span>	
+						</h3>
+					</div>
+				</td>
+			</tr>
+
+			<tr id="row">
+				<td>
+					<div id="symbol"	class="inputs"	>
+						<img src="icon/temp.png">	
+					</div>
+				</td>
+
+				<td>
+					<div id="display"	class="inputs"	>
+						<h3>Temperature &#58;
+							<span class="analogvalue" id="phvalue">none</span>
+						</h3>
+					</div>
+				</td>
+			</tr>
+
+			<tr id="row">
+				<td>
+					<div id="symbol"	class="inputs"	>
+						<img src="icon/food.png">	
+					</div>
+				</td>
+
+				<td>
+					<div id="display"	class="inputs"	>
+						<h3>Food Level &#58;
+							<span class="analogvalue" id="foodvalue">none</span>
+						</h3>
+					</div>
+				</td>
+			</tr>
+		</table>
+			
+		</div>
+
+	</div>
+
+	<script>
+		var tempdata;
+		var phdata;
+		var fooddata;
+		var celsius;
+		var textdata = "XD";
+		var appOn = "ON";
+		var appOff = "OFF";
+
+		setup();
+
+		function setup(){
+		if(cpf)
+			cpf.setPinMode('["resetPin"],["setPinMode", "analog", 0,"INPUT"],["setPinMode", "digital", 2,"INPUT"],["setPinMode", "analog", 3,"INPUT"]'); 
+			//document.getElementById("demo").innerHTML += ret + "<br>";
+		}
+
+		function loop() {
+			if(cpf){
+		
+				tempdata = cpf.get("temperature sensor");
+				fooddata = cpf.get("ultrasonic sensor");
+				
+				celsius = toCelsius(tempdata);	
+				document.getElementById("temperaturevalue").innerHTML = celsius;
+				document.getElementById("foodvalue").innerHTML = fooddata;
+				
+			}
+			setTimeout(loop, 1000);
+		}
+		loop();
+
+	// Temperature
+		function toCelsius(value) {
+			var resistance = parseFloat((1023-value) * 10000 / value);
+			var temperature = 1 / (Math.log(resistance / 10000) / 3975+1 / 298.15) - 273.15;
+			
+			return temperature.toFixed(2);
+		}
+
+		function changeOn(){
+				document.getElementById("textOn").innerHTML = textdata;
+				document.getElementById("textOff").innerHTML = appOff;
+		}
+		function changeOff(){
+				document.getElementById("textOn").innerHTML = appOn;
+				document.getElementById("textOff").innerHTML = textdata;
+		}
+
+		function pumpOn(){
+				document.getElementById("pumpOn").innerHTML = textdata;
+				document.getElementById("pumpOff").innerHTML = appOff;
+		}
+		function pumpOff(){
+				document.getElementById("pumpOn").innerHTML = appOn;
+				document.getElementById("pumpOff").innerHTML = textdata;
+		}
+	
+		function feedOn(){
+				document.getElementById("feedOn").innerHTML = textdata;
+				document.getElementById("feedOff").innerHTML = appOff;
+		}
+		function feedOff(){
+				document.getElementById("feedOn").innerHTML = appOn;
+				document.getElementById("feedOff").innerHTML = textdata;
+		}
+
+
+	</script>
+
+
+
+</body>
