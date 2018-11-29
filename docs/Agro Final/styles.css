@@ -10,6 +10,11 @@ html {
 	text-align: center;
 }
 
+.someText{
+	padding-top: 20px;
+	font-weight: bold;
+}
+
 #button{
 	display: block;
 	padding-top: 20px;
