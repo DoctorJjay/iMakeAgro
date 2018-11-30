@@ -9,7 +9,7 @@
 
 <body>
 		
-	<h1> USER INTERFACE v1.00.13</h1>
+	<h1> USER INTERFACE v1.00.13.1</h1>
 
 	<div  id="content"	class="row">
 		<table id="table">
@@ -286,7 +286,7 @@
 		}
 
 		function phRef(){
-					if(feeder==HIGH){
+					if(feeder == 1){
 						cpf.request('["digitalWrite", 7 , 1]'); 
 					document.getElementById("phvalue").innerHTML = appOn;
 				  	}
