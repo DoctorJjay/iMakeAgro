@@ -9,7 +9,7 @@
 
 <body>
 		
-	<h1> USER INTERFACE v1.00.14.2</h1>
+	<h1> USER INTERFACE v1.00.14.3</h1>
 
 	<div  id="content"	class="row">
 		<table id="table">
@@ -278,6 +278,7 @@
 
 		function tempRef(){
 				document.getElementById("temperaturevalue").innerHTML = celsius;
+				cpf.request('["analogWrite", 3, 0]');
 		}
 
 		function phRef(){
