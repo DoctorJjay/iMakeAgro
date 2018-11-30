@@ -9,7 +9,7 @@
 
 <body>
 		
-	<h1> USER INTERFACE v1.00.13.4</h1>
+	<h1> USER INTERFACE v1.00.14</h1>
 
 	<div  id="content"	class="row">
 		<table id="table">
@@ -217,6 +217,7 @@
 			cpf.setPinMode('["resetPin"],["setPinMode", "digital", 4,"DHT11"]');
 
 			cpf.setPinMode('["resetPin"],["setPinMode", "digital", 2,"INPUT"]'); 
+			cpf.setPinMode('["resetPin"],["setPinMode", "digital", 3,"SERVO"]'); 
 			//document.getElementById("demo").innerHTML += ret + "<br>";
 		}
 
@@ -227,6 +228,7 @@
 				celsius = toCelsius(tempdata);	
 				feeder = cpf.get("d2")
 				phRef();
+				tempRef();
 				
 			}
 			setTimeout(loop, 1000);
@@ -275,7 +277,7 @@
 		}
 
 		function tempRef(){
-				document.getElementById("temperaturevalue").innerHTML = tempdata;
+				document.getElementById("temperaturevalue").innerHTML = celsius;
 		}
 
 		function phRef(){
@@ -289,6 +291,8 @@
 					  }      
 		}
 		function foodRef(){
+			cpf.request('["analogWrite", 3, 100>]');
+
 		}
 
 
