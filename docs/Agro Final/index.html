@@ -17,7 +17,7 @@
 				<td>
 					<div id="button"	class="inputs"	>
 						<img src="icon/light.png">	
-						<h3>LGT</h3>
+						<h3>LiGhT</h3>
 					</div>
 				</td>
 
@@ -118,7 +118,18 @@
 				<td>
 					<div id="display"	class="inputs"	>
 						<h3>pH Level &#58;
-							<span class="analogvalue" id="temperaturevalue">none</span>	
+							<span class="analogvalue" id="phvalue">none</span>
+						</h3>
+					</div>
+				</td>
+
+				<td>
+					<div id="label"	class="inputs"	>
+						<h3 id="headLabel">
+							<div class="button" id="buttonLabel">
+							  <input type="button" onClick="phRef();" id="clicker">
+							  <span class="someText"  id="refresh">REFRESH</span>
+							</div> 
 						</h3>
 					</div>
 				</td>
@@ -134,7 +145,18 @@
 				<td>
 					<div id="display"	class="inputs"	>
 						<h3>Temperature &#58;
-							<span class="analogvalue" id="phvalue">none</span>
+							<span class="analogvalue" id="temperaturevalue">none</span>	
+						</h3>
+					</div>
+				</td>
+
+				<td>
+					<div id="label"	class="inputs"	>
+						<h3 id="headLabel">
+							<div class="button" id="buttonLabel">
+							  <input type="button" onClick="tempRef();" id="clicker">
+							  <span class="someText"  id="refresh">REFRESH</span>
+							</div> 
 						</h3>
 					</div>
 				</td>
@@ -151,6 +173,17 @@
 					<div id="display"	class="inputs"	>
 						<h3>Food Level &#58;
 							<span class="analogvalue" id="foodvalue">none</span>
+						</h3>
+					</div>
+				</td>
+
+				<td>
+					<div id="label"	class="inputs"	>
+						<h3 id="headLabel">
+							<div class="button" id="buttonLabel">
+							  <input type="button" onClick="foodRef();" id="clicker">
+							  <span class="someText"  id="refresh">REFRESH</span>
+							</div> 
 						</h3>
 					</div>
 				</td>
@@ -237,6 +270,16 @@
 				document.getElementById("feedOn").innerHTML = appOn;
 				document.getElementById("feedOff").innerHTML = textdata;
 				cpf.request('["digitalWrite", 8 , 0]'); 
+		}
+		function tempRef(){
+				celsius = toCelsius(tempdata);	
+				document.getElementById("temperaturevalue").innerHTML = celsius;
+		}
+		function phRef(){
+		}
+		function foodRef(){
+				fooddata = cpf.get("ultrasonic","d4","CM");
+				document.getElementById("foodvalue").innerHTML = fooddata;
 		}
 
 
