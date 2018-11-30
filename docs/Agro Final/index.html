@@ -8,8 +8,8 @@
 </head>
 
 <body>
-		
-	<h1> USER INTERFACE v1.00.14.7</h1>
+
+	<h1> USER INTERFACE v1.00.15</h1>
 
 	<div  id="content"	class="row">
 		<table id="table">
@@ -209,14 +209,16 @@
 		setup();
 
 		function setup(){
-		if(cpf)
-			cpf.setPinMode('["resetPin"],["setPinMode", "analog", 0,"INPUT"]'); 
-			cpf.setPinMode('["resetPin"],["setPinMode", "digital", 6,"OUTPUT"]'); 
-			cpf.setPinMode('["resetPin"],["setPinMode", "digital", 7,"OUTPUT"]'); 
-			cpf.setPinMode('["resetPin"],["setPinMode", "digital", 8,"OUTPUT"]'); 
-			cpf.setPinMode('["resetPin"],["setPinMode", "digital", 4,"DHT11"]');
-			cpf.setPinMode('["resetPin"],["setPinMode", "digital", 12,"INPUT"]'); 
-			cpf.setPinMode('["resetPin"],["setPinMode", "digital", 3,"SERVO"]'); 
+			if(cpf){
+
+				cpf.setPinMode('["resetPin"],["setPinMode", "analog", 0,"INPUT"]'); 
+				cpf.setPinMode('["resetPin"],["setPinMode", "digital", 6,"OUTPUT"]'); 
+				cpf.setPinMode('["resetPin"],["setPinMode", "digital", 7,"OUTPUT"]'); 
+				cpf.setPinMode('["resetPin"],["setPinMode", "digital", 8,"OUTPUT"]'); 
+				cpf.setPinMode('["resetPin"],["setPinMode", "digital", 4,"DHT11"]');
+				cpf.setPinMode('["resetPin"],["setPinMode", "digital", 12,"INPUT"]'); 
+				cpf.setPinMode('["resetPin"],["setPinMode", "digital", 3,"SERVO"]'); 
+			}
 			//document.getElementById("demo").innerHTML += ret + "<br>";
 		}
 
@@ -275,7 +277,7 @@
 
 		function tempRef(){
 				document.getElementById("temperaturevalue").innerHTML = celsius;
-				cpf.request('["analogWrite", 3, 0]');
+				cpf.request('["analogWrite", 3, 1]');
 		}
 
 		function phRef(){
@@ -290,6 +292,7 @@
 						document.getElementById("phvalue").innerHTML = appOff;
 					}
 		}
+
 		function foodRef(){
 			cpf.request('["analogWrite", 3, 100]');
 
