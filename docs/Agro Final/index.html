@@ -9,7 +9,7 @@
 
 <body>
 		
-	<h1> USER INTERFACE v1.00.14</h1>
+	<h1> USER INTERFACE v1.00.14.1</h1>
 
 	<div  id="content"	class="row">
 		<table id="table">
@@ -224,7 +224,7 @@
 		function loop() {
 			if(cpf){
 		
-				tempdata = cpf.get("DHT11","d4","dht11temp");
+				tempdata = cpf.get("a0");
 				celsius = toCelsius(tempdata);	
 				feeder = cpf.get("d2")
 				phRef();
@@ -291,7 +291,7 @@
 					  }      
 		}
 		function foodRef(){
-			cpf.request('["analogWrite", 3, 100>]');
+			cpf.request('["analogWrite", 3, 100]');
 
 		}
 
