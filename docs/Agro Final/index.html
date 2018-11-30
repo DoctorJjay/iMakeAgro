@@ -17,14 +17,14 @@
 				<td>
 					<div id="button"	class="inputs"	>
 						<img src="icon/light.png">	
-						<h3>Lights</h3>
+						<h3>LGT</h3>
 					</div>
 				</td>
 
 				<td>
 					<div id="button"	class="inputs"	>
 						<img src="icon/pipe.png">	
-						<h3>Pumps</h3>
+						<h3>PMP</h3>
 					</div>
 				</td>
 
@@ -175,7 +175,7 @@
 		function setup(){
 		if(cpf)
 			cpf.setPinMode('["resetPin"],["setPinMode", "analog", 0,"INPUT"]'); 
-			cpf.setPinMode('["setPinMode", "digital", 4,"SRO3"]'); 
+			cpf.setPinMode('["setPinMode", "digital", 4,"SRO4"]'); 
 			cpf.setPinMode('["resetPin"],["setPinMode", "digital", 6,"OUTPUT"]'); 
 			cpf.setPinMode('["resetPin"],["setPinMode", "digital", 7,"OUTPUT"]'); 
 			cpf.setPinMode('["resetPin"],["setPinMode", "digital", 8,"OUTPUT"]'); 
@@ -186,7 +186,7 @@
 		function loop() {
 			if(cpf){
 		
-				tempdata = cpf.get("DHT11","d4","dht11temp");
+				tempdata = cpf.get("DHT11","d3","dht11temp");
 				fooddata = cpf.get("ultrasonic","d4","CM");
 
 				celsius = toCelsius(tempdata);	
