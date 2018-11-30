@@ -9,7 +9,7 @@
 
 <body>
 		
-	<h1> USER INTERFACE v1.00.12</h1>
+	<h1> USER INTERFACE v1.00.13</h1>
 
 	<div  id="content"	class="row">
 		<table id="table">
@@ -233,7 +233,6 @@
 
 				document.getElementById("temperaturevalue").innerHTML = celsius;
 				document.getElementById("foodvalue").innerHTML = fooddata;
-				phRef();
 				
 			}
 			setTimeout(loop, 1000);
@@ -280,10 +279,12 @@
 				document.getElementById("feedOff").innerHTML = textdata;
 				cpf.request('["digitalWrite", 8 , 0]'); 
 		}
+
 		function tempRef(){
 				celsius = toCelsius(tempdata);	
 				document.getElementById("temperaturevalue").innerHTML = celsius;
 		}
+
 		function phRef(){
 					if(feeder==HIGH){
 						cpf.request('["digitalWrite", 7 , 1]'); 
