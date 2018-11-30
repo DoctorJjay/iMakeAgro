@@ -105,7 +105,7 @@
 			</tr>
 
 		</table>
-			<br><br><br>
+			<br>
 
 		<table id="status">
 			<tr id="row">
@@ -174,7 +174,11 @@
 
 		function setup(){
 		if(cpf)
-			cpf.setPinMode('["resetPin"],["setPinMode", "analog", 0,"INPUT"],["setPinMode", "digital", 2,"INPUT"],["setPinMode", "analog", 3,"INPUT"]'); 
+			cpf.setPinMode('["resetPin"],["setPinMode", "analog", 0,"INPUT"]'); 
+			cpf.setPinMode('["setPinMode", "digital", 4,"SRO3"]'); 
+			cpf.setPinMode('["resetPin"],["setPinMode", "digital", 6,"OUTPUT"]'); 
+			cpf.setPinMode('["resetPin"],["setPinMode", "digital", 7,"OUTPUT"]'); 
+			cpf.setPinMode('["resetPin"],["setPinMode", "digital", 8,"OUTPUT"]'); 
 			//document.getElementById("demo").innerHTML += ret + "<br>";
 		}
 
@@ -182,8 +186,8 @@
 			if(cpf){
 		
 				tempdata = cpf.get("temperature sensor");
-				fooddata = cpf.get("ultrasonic sensor");
-				
+				fooddata = cpf.get("ultrasonic","d4","CM");
+
 				celsius = toCelsius(tempdata);	
 				document.getElementById("temperaturevalue").innerHTML = celsius;
 				document.getElementById("foodvalue").innerHTML = fooddata;
@@ -204,28 +208,34 @@
 		function changeOn(){
 				document.getElementById("textOn").innerHTML = textdata;
 				document.getElementById("textOff").innerHTML = appOff;
+				cpf.request('["digitalWrite", 6 , 1]'); 
 		}
 		function changeOff(){
 				document.getElementById("textOn").innerHTML = appOn;
 				document.getElementById("textOff").innerHTML = textdata;
+				cpf.request('["digitalWrite", 6 , 0]'); 
 		}
 
 		function pumpOn(){
 				document.getElementById("pumpOn").innerHTML = textdata;
 				document.getElementById("pumpOff").innerHTML = appOff;
+				cpf.request('["digitalWrite", 7 , 1]'); 
 		}
 		function pumpOff(){
 				document.getElementById("pumpOn").innerHTML = appOn;
 				document.getElementById("pumpOff").innerHTML = textdata;
+				cpf.request('["digitalWrite", 7 , 0]'); 
 		}
 	
 		function feedOn(){
 				document.getElementById("feedOn").innerHTML = textdata;
 				document.getElementById("feedOff").innerHTML = appOff;
+				cpf.request('["digitalWrite", 8 , 1]'); 
 		}
 		function feedOff(){
 				document.getElementById("feedOn").innerHTML = appOn;
 				document.getElementById("feedOff").innerHTML = textdata;
+				cpf.request('["digitalWrite", 8 , 0]'); 
 		}
 
 

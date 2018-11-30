@@ -10,11 +10,6 @@ html {
 	text-align: center;
 }
 
-.someText{
-	padding-top: 20px;
-	font-weight: bold;
-}
-
 #button{
 	display: block;
 	padding-top: 20px;
@@ -83,7 +78,7 @@ html {
 
 /* BUTTON */
 #clicker{
-	height: 40px;
+	height: 45px;
 	width: 75px;
 }
 
