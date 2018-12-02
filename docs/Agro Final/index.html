@@ -9,7 +9,7 @@
 
 <body>
 
-	<h1> USER INTERFACE v1.16.01</h1>
+	<h1> USER INTERFACE v1.17.01</h1>
 
 	<div  id="content"	class="row">
 		<table id="table">
@@ -214,9 +214,10 @@
 				cpf.setPinMode('["resetPin"],["setPinMode", "digital", 6,"OUTPUT"]'); 
 				cpf.setPinMode('["resetPin"],["setPinMode", "digital", 7,"OUTPUT"]'); 
 				cpf.setPinMode('["resetPin"],["setPinMode", "digital", 13,"OUTPUT"]'); 
-				cpf.setPinMode('["resetPin"],["setPinMode", "digital", 4,"DHT11"]');
+				cpf.setPinMode('["resetPin"],["setPinMode", "digital", 4,"OUTPUT"]');
 				cpf.setPinMode('["resetPin"],["setPinMode", "digital", 12,"INPUT"]'); 
 				cpf.setPinMode('["resetPin"],["setPinMode", "digital", 3,"SERVO"]'); 
+				cpf.setPinMode('["resetPin"],["grove_rgblcd_begin", 16, 2]');
 			}
 			//document.getElementById("demo").innerHTML += ret + "<br>";
 		}
@@ -243,26 +244,41 @@
 			return temperature.toFixed(2);
 		}
 
+	// RBG Functions 
+
+		function speakRGB(){
+			cpf.request('["grove_rgblcd_set_rgb", 255, 0, 0]');
+			cpf.request('["grove_rgblcd_print", 0, 1, "Hello World"]');
+		}
+
+		function clearRGB(){
+			cpf.request('["grove_rgblcd_clear"]');
+		}	
+
+	// UI Digital Pins
+
 		function changeOn(){
 				document.getElementById("textOn").innerHTML = textdata;
 				document.getElementById("textOff").innerHTML = appOff;
-				cpf.request('["digitalWrite", 6 , 1]'); 
+				cpf.request('["digitalWrite", 4 , 1]'); 
 		}
 		function changeOff(){
 				document.getElementById("textOn").innerHTML = appOn;
 				document.getElementById("textOff").innerHTML = textdata;
-				cpf.request('["digitalWrite", 6 , 0]'); 
+				cpf.request('["digitalWrite", 4 , 0]'); 
 		}
 
 		function pumpOn(){
 				document.getElementById("pumpOn").innerHTML = textdata;
 				document.getElementById("pumpOff").innerHTML = appOff;
-				cpf.request('["digitalWrite", 7 , 1]'); 
+				cpf.request('["digitalWrite", 7 , 1]');
+				speakRGB(); 
 		}
 		function pumpOff(){
 				document.getElementById("pumpOn").innerHTML = appOn;
 				document.getElementById("pumpOff").innerHTML = textdata;
 				cpf.request('["digitalWrite", 7 , 0]'); 
+				clearRGB();
 		}
 	
 		function feedOn(){
