@@ -1,305 +1,107 @@
 <!DOCTYPE html>
 <head>
-<title>	&#127809; AGro User Interface</title>
+<title>Easy Control</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="main.css">
 
 </head>
-
 <body>
+<font id="title">Easy Control</font><p><br>
 
-	<h1> USER INTERFACE v1.00.15.1</h1>
-
-	<div  id="content"	class="row">
-		<table id="table">
-			<tr id="row">
-				<td>
-					<div id="button"	class="inputs"	>
-						<img src="icon/light.png">	
-						<h3>LiGhT</h3>
-					</div>
-				</td>
-
-				<td>
-					<div id="button"	class="inputs"	>
-						<img src="icon/pipe.png">	
-						<h3>PMP</h3>
-					</div>
-				</td>
-
-				<td>
-					<div id="button"	class="inputs"	>
-						<img src="icon/food.png">	
-						<h3>Manual Feed</h3>
-					</div>
-				</td>
-			</tr>
-
-			<tr id="row">
-				<td>
-					<div id="label"	class="inputs"	>
-						<h3 id="headLabel">
-							<div class="button" id="buttonLabel">
-							  <input type="button" onClick="changeOn();" id="clicker">
-							  <span class="someText"  id="textOn">ON</span>
-							</div> 
-						</h3>
-					</div>
-				</td>
-
-				<td>
-					<div id="label"	class="inputs"	>
-						<h3 id="headLabel">
-							<div class="button" id="buttonLabel">
-							  <input type="button" onClick="changeOff();" id="clicker">
-							  <span class="someText"  id="textOff">OFF</span>
-							</div> 
-						</h3>
-					</div>
-				</td>
-
-				<td>
-					<div id="label"	class="inputs"	>
-						<h3 id="headLabel">
-							<div class="button" id="buttonLabel">
-							  <input type="button" onClick="pumpOn();" id="clicker">
-							  <span class="someText"  id="pumpOn">ON</span>
-							</div> 
-						</h3>
-					</div>
-				</td>
-
-				<td>
-					<div id="label"	class="inputs"	>
-						<h3 id="headLabel">
-							<div class="button" id="buttonLabel">
-							  <input type="button" onClick="pumpOff();" id="clicker">
-							  <span class="someText"  id="pumpOff">OFF</span>
-							</div> 
-						</h3>
-					</div>
-				</td>
-
-				<td>
-					<div id="label"	class="inputs"	>
-						<h3 id="headLabel">
-							<div class="button" id="buttonLabel">
-							  <input type="button" onClick="feedOn();" id="clicker">
-							  <span class="someText"  id="feedOn">ON</span>
-							</div> 
-						</h3>
-					</div>
-				</td>
-
-				<td>
-					<div id="label"	class="inputs"	>
-						<h3 id="headLabel">
-							<div class="button" id="buttonLabel">
-							  <input type="button" onClick="feedOff();" id="clicker">
-							  <span class="someText"  id="feedOff">OFF</span>
-							</div> 
-						</h3>
-					</div>
-				</td>
-			</tr>
-
-		</table>
-			<br>
-
-		<table id="status">
-			<tr id="row">
-				<td>
-					<div id="symbol"	class="inputs"	>
-						<img src="icon/acid.png">	
-					</div>
-				</td>
-
-				<td>
-					<div id="display"	class="inputs"	>
-						<h3>pH Level &#58;
-							<span class="analogvalue" id="phvalue">none</span>
-						</h3>
-					</div>
-				</td>
-
-				<td>
-					<div id="label"	class="inputs"	>
-						<h3 id="headLabel">
-							<div class="button" id="buttonLabel">
-							  <input type="button" onClick="phRef();" id="clicker">
-							  <span class="someText"  id="refresh">REFRESH</span>
-							</div> 
-						</h3>
-					</div>
-				</td>
-			</tr>
-
-			<tr id="row">
-				<td>
-					<div id="symbol"	class="inputs"	>
-						<img src="icon/temp.png">	
-					</div>
-				</td>
-
-				<td>
-					<div id="display"	class="inputs"	>
-						<h3>Temperature &#58;
-							<span class="analogvalue" id="temperaturevalue">none</span>	
-						</h3>
-					</div>
-				</td>
-
-				<td>
-					<div id="label"	class="inputs"	>
-						<h3 id="headLabel">
-							<div class="button" id="buttonLabel">
-							  <input type="button" onClick="tempRef();" id="clicker">
-							  <span class="someText"  id="refresh">REFRESH</span>
-							</div> 
-						</h3>
-					</div>
-				</td>
-			</tr>
-
-			<tr id="row">
-				<td>
-					<div id="symbol"	class="inputs"	>
-						<img src="icon/food.png">	
-					</div>
-				</td>
-
-				<td>
-					<div id="display"	class="inputs"	>
-						<h3>Food Level &#58;
-							<span class="analogvalue" id="foodvalue">none</span>
-						</h3>
-					</div>
-				</td>
-
-				<td>
-					<div id="label"	class="inputs"	>
-						<h3 id="headLabel">
-							<div class="button" id="buttonLabel">
-							  <input type="button" onClick="foodRef();" id="clicker">
-							  <span class="someText"  id="refresh">REFRESH</span>
-							</div> 
-						</h3>
-					</div>
-				</td>
-			</tr>
-		</table>
-			
+<div id="content" class="row">
+	<div class="col-sm-12  col-xs-12">
+		<div id="analog" class="col-sm-6 col-xs-12">
+			<div class="analogclass">
+				<img class="analogsensor" src="img/light.png" />
+				<span class="analogvalue" id="lightvalue">none</span><br>
+			</div>
+			<p>
+			<div class="analogclass">
+				<img class="analogsensor" src="img/temp.png" />
+				<span class="analogvalue" id="temperaturevalue">none</span>
+			</div>
 		</div>
-
+		<div id="rgb" class="col-sm-6 col-xs-12">
+			<img class="rgbled" src="img/rgb.png" />
+			<table style="margin: 0 auto; margin-top: 10px;">
+				<tr style="text-align: center;">
+					<td><font color="red"><b>Red</b></font></td>
+					<td><font color="green"><b>green</b></font></td>
+					<td><font color="blue"><b>blue</b></font></td>
+					<td><font color="blue"><b>blue</b></font></td>
+				</tr>
+				<tr style="text-align: center;">
+					<td id="redvalue">0</td>
+					<td id="greenvalue">0</td>
+					<td id="bluevalue">0</td>
+					<td id="bluevalue">0</td>
+				</tr>
+				<tr>
+					<td><input Onchange="changeColor();" type="range" id="rled" class="ledbar" value="0" min="0" max="255"></td>
+					<td><input Onchange="changeColor();" type="range" id="gled" class="ledbar" value="0" min="0" max="255"></td>
+					<td><input Onchange="changeColor();" type="range" id="bled" class="ledbar" value="0" min="0" max="255"></td>
+				</tr>
+			</table>
+			<span id="showcolor"></span>
+		</div>
 	</div>
+</div>
 
-	<script>
-		var tempdata;
-		var phdata;
-		var fooddata;
-		var celsius;
-		var textdata = "XD";
-		var appOn = "ON";
-		var appOff = "OFF";
-		var appTest = "TEST";
-
-		var feeder;
-
-		setup();
-
-		function setup(){
-			if(cpf){
-
-				cpf.setPinMode('["resetPin"],["setPinMode", "analog", 0,"INPUT"]'); 
-				cpf.setPinMode('["resetPin"],["setPinMode", "digital", 6,"OUTPUT"]'); 
-				cpf.setPinMode('["resetPin"],["setPinMode", "digital", 7,"OUTPUT"]'); 
-				cpf.setPinMode('["resetPin"],["setPinMode", "digital", 8,"OUTPUT"]'); 
-				cpf.setPinMode('["resetPin"],["setPinMode", "digital", 4,"DHT11"]');
-				cpf.setPinMode('["resetPin"],["setPinMode", "digital", 12,"INPUT"]'); 
-				cpf.setPinMode('["resetPin"],["setPinMode", "digital", 3,"SERVO"]'); 
-			}
-			//document.getElementById("demo").innerHTML += ret + "<br>";
-		}
-
-		function loop() {
-			if(cpf){
-		
-				tempdata = cpf.get("a0");
-				feeder = cpf.get("d12");
-				celsius = toCelsius(tempdata);	
-				phRef();
-				tempRef;
-				
-			}
-			setTimeout(loop, 1000);
-		}
-		loop();
-
-	// Temperature
-		function toCelsius(value) {
-			var resistance = parseFloat((1023-value) * 10000 / value);
-			var temperature = 1 / (Math.log(resistance / 10000) / 3975+1 / 298.15) - 273.15;
-			
-			return temperature.toFixed(2);
-		}
-
-		function changeOn(){
-				document.getElementById("textOn").innerHTML = textdata;
-				document.getElementById("textOff").innerHTML = appOff;
-				cpf.request('["digitalWrite", 6 , 1]'); 
-		}
-		function changeOff(){
-				document.getElementById("textOn").innerHTML = appOn;
-				document.getElementById("textOff").innerHTML = textdata;
-				cpf.request('["digitalWrite", 6 , 0]'); 
-		}
-
-		function pumpOn(){
-				document.getElementById("pumpOn").innerHTML = textdata;
-				document.getElementById("pumpOff").innerHTML = appOff;
-				cpf.request('["digitalWrite", 7 , 1]'); 
-		}
-		function pumpOff(){
-				document.getElementById("pumpOn").innerHTML = appOn;
-				document.getElementById("pumpOff").innerHTML = textdata;
-				cpf.request('["digitalWrite", 7 , 0]'); 
-		}
+<script>
 	
-		function feedOn(){
-				document.getElementById("feedOn").innerHTML = textdata;
-				document.getElementById("feedOff").innerHTML = appOff;
-				cpf.request('["digitalWrite", 8 , 1]'); 
+	var lightdata;
+	var tempdata;
+	var celsius;
+	setup();
+	// Analog
+	function loop() {
+		if(cpf){
+	
+			lightdata = cpf.get("light sensor");
+			tempdata = cpf.get("temperature sensor");
+			celsius = toCelsius(tempdata);	
+			document.getElementById("lightvalue").innerHTML = lightdata;
+			document.getElementById("temperaturevalue").innerHTML = celsius;
+			
 		}
-		function feedOff(){
-				document.getElementById("feedOn").innerHTML = appOn;
-				document.getElementById("feedOff").innerHTML = textdata;
-				cpf.request('["digitalWrite", 8 , 0]'); 
+		setTimeout(loop, 1000);
+	}
+	loop();
+	
+	// RGB
+	function changeColor() {
+		var Rled = document.getElementById("rled").value;
+		var Gled = document.getElementById("gled").value;
+		var Bled = document.getElementById("bled").value;
+		
+		document.getElementById("redvalue").innerHTML = Rled;
+		document.getElementById("greenvalue").innerHTML = Gled;
+		document.getElementById("bluevalue").innerHTML = Bled;
+		
+		document.getElementById("showcolor").style.backgroundColor = 'rgb(' + Rled + ',' + Gled + ',' + Bled + ')';
+		
+		if(cpf){
+			cpf.setChainableLed("0," + Rled + "," + Gled + "," + Bled + ";");
 		}
-
-		function tempRef(){
-				document.getElementById("temperaturevalue").innerHTML = celsius;
-				cpf.request('["analogWrite", 3, 1]');
-		}
-
-		function phRef(){
-					
-					if(feeder == 1){
-						document.getElementById("phvalue").innerHTML = appOn;
-				  	}
-				  	else{
-						document.getElementById("phvalue").innerHTML = appOff;
-					}
-		}
-
-		function foodRef(){
-			cpf.request('["analogWrite", 3, 100]');
-
-		}
-
-
-	</script>
-
-
-
+		
+	}
+	
+	// Temperature
+	function toCelsius(value) {
+		var resistance = parseFloat((1023-value) * 10000 / value);
+		var temperature = 1 / (Math.log(resistance / 10000) / 3975+1 / 298.15) - 273.15;
+		
+		return temperature.toFixed(2);
+	}
+	
+	// cpf setup
+	function setup(){
+		if(cpf)
+			cpf.setPinMode('["resetPin"],["setPinMode", "analog", 0, "INPUT"],["setPinMode", "analog", 1,"INPUT"],["grove_newChainableLED", 7, 8, 1]'); 
+			//document.getElementById("demo").innerHTML += ret + "<br>";
+	}
+	
+</script>
 </body>
+</html>
