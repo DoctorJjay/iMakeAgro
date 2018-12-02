@@ -9,7 +9,7 @@
 
 <body>
 
-	<h1> USER INTERFACE v1.00.15.2</h1>
+	<h1> USER INTERFACE v1.16.01</h1>
 
 	<div  id="content"	class="row">
 		<table id="table">
@@ -213,7 +213,7 @@
 				cpf.setPinMode('["resetPin"],["setPinMode", "analog", 0,"INPUT"]'); 
 				cpf.setPinMode('["resetPin"],["setPinMode", "digital", 6,"OUTPUT"]'); 
 				cpf.setPinMode('["resetPin"],["setPinMode", "digital", 7,"OUTPUT"]'); 
-				cpf.setPinMode('["resetPin"],["setPinMode", "digital", 8,"OUTPUT"]'); 
+				cpf.setPinMode('["resetPin"],["setPinMode", "digital", 13,"OUTPUT"]'); 
 				cpf.setPinMode('["resetPin"],["setPinMode", "digital", 4,"DHT11"]');
 				cpf.setPinMode('["resetPin"],["setPinMode", "digital", 12,"INPUT"]'); 
 				cpf.setPinMode('["resetPin"],["setPinMode", "digital", 3,"SERVO"]'); 
@@ -268,12 +268,12 @@
 		function feedOn(){
 				document.getElementById("feedOn").innerHTML = textdata;
 				document.getElementById("feedOff").innerHTML = appOff;
-				cpf.request('["digitalWrite", 8 , 1]'); 
+				cpf.request('["digitalWrite", 13 , 1]'); 
 		}
 		function feedOff(){
 				document.getElementById("feedOn").innerHTML = appOn;
 				document.getElementById("feedOff").innerHTML = textdata;
-				cpf.request('["digitalWrite", 8 , 0]'); 
+				cpf.request('["digitalWrite", 13 , 0]'); 
 		}
 
 		function tempRef(){
