@@ -9,7 +9,7 @@
 
 <body>
 
-	<h1> USER INTERFACE v1.21</h1>
+	<h1> USER INTERFACE v1.21.1</h1>
 
 	<div  id="content"	class="row">
 		<table id="table">
@@ -243,8 +243,8 @@
 				cpf.setPinMode('["resetPin"],["setPinMode", "digital", 6,"OUTPUT"]'); 
 				cpf.setPinMode('["resetPin"],["setPinMode", "digital", 7,"OUTPUT"]'); 
 				cpf.setPinMode('["resetPin"],["setPinMode", "digital", 13,"OUTPUT"]'); 
-				cpf.setPinMode('["resetPin"],["setPinMode", "digital", 12,"INPUT"]'); 
-				cpf.setPinMode('["resetPin"],["servo_init", 9, 90, 900, 2100]'); 
+				cpf.setPinMode('["resetPin"],["setPinMode", "digital", 12,"INPUT"]');
+				cpf.setPinMode('["resetPin"],["setPinMode", "digital", 3,"SERVO"]');  
 				cpf.setPinMode('["resetPin"],["grove_rgblcd_begin", 16, 2]');
 			}
 			//document.getElementById("demo").innerHTML += ret + "<br>";
@@ -257,7 +257,7 @@
 				feeder = cpf.get("d12");
 				celsius = toCelsius(tempdata);	
 				phRef();
-				tempRef;
+				tempRef();
 				
 			}
 			setTimeout(loop, 1000);
@@ -299,12 +299,12 @@
 		function feedOn(){
 				document.getElementById("feedOn").innerHTML = textdata;
 				document.getElementById("feedOff").innerHTML = appOff;
-				cpf.request('["servo_pos_speed", 9, 120, 30]');
+				cpf.request('["analogWrite", 3 , 130]'); 
 		}
 		function feedOff(){
 				document.getElementById("feedOn").innerHTML = appOn;
 				document.getElementById("feedOff").innerHTML = textdata;
-				cpf.request('["servo_pos_speed", 9, 0, 30]');
+				cpf.request('["analogWrite", 3 , 0]'); 
 		}
 
 		function fltrOn(){
