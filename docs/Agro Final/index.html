@@ -9,7 +9,7 @@
 
 <body>
 
-	<h1> USER INTERFACE v1.18</h1>
+	<h1> USER INTERFACE v1.18.2</h1>
 
 	<div  id="content"	class="row">
 		<table id="table">
@@ -277,23 +277,23 @@
 		function changeOn(){
 				document.getElementById("textOn").innerHTML = textdata;
 				document.getElementById("textOff").innerHTML = appOff;
-				cpf.request('["digitalWrite", 6 , 1]'); 
+				cpf.request('["digitalWrite", 7 , 1]'); 
 		}
 		function changeOff(){
 				document.getElementById("textOn").innerHTML = appOn;
 				document.getElementById("textOff").innerHTML = textdata;
-				cpf.request('["digitalWrite", 6 , 0]'); 
+				cpf.request('["digitalWrite", 7 , 0]'); 
 		}
 
 		function pumpOn(){
 				document.getElementById("pumpOn").innerHTML = textdata;
 				document.getElementById("pumpOff").innerHTML = appOff;
-				cpf.request('["digitalWrite", 7 , 1]');
+				cpf.request('["digitalWrite", 13 , 1]');
 		}
 		function pumpOff(){
 				document.getElementById("pumpOn").innerHTML = appOn;
 				document.getElementById("pumpOff").innerHTML = textdata;
-				cpf.request('["digitalWrite", 7 , 0]'); 
+				cpf.request('["digitalWrite", 13 , 0]'); 
 		}
 	
 		function feedOn(){
@@ -310,12 +310,12 @@
 		function fltrOn(){
 				document.getElementById("fltrOn").innerHTML = textdata;
 				document.getElementById("fltrOff").innerHTML = appOff;
-				cpf.request('["digitalWrite", 13 , 1]'); 
+				cpf.request('["digitalWrite", 6 , 1]'); 
 		}
 		function fltrOff(){
 				document.getElementById("fltrOn").innerHTML = appOn;
 				document.getElementById("fltrOff").innerHTML = textdata;
-				cpf.request('["digitalWrite", 13 , 0]'); 
+				cpf.request('["digitalWrite", 6 , 0]'); 
 		}
 
 		function tempRef(){
